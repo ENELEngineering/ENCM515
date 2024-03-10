@@ -1,0 +1,29 @@
+17:57:50 **** Incremental Build of configuration Debug for project lab3_proj ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:53:31: warning: initialization of 'volatile int32_t *' {aka 'volatile long int *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   53 | volatile int32_t *raw_audio = 0x802002C; // ignore first 44 bytes of header
+      |                               ^~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:169:14: warning: unused variable 'i' [-Wunused-variable]
+  169 |   static int i = 0;
+      |              ^
+At top level:
+../Core/Src/main.c:169:14: warning: 'i' defined but not used [-Wunused-variable]
+../Core/Src/main.c:469:16: warning: 'reverbEffect' defined but not used [-Wunused-function]
+  469 | static int16_t reverbEffect(int16_t newsample) {
+      |                ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "lab3_proj.elf" @"objects.list"  -larm_cortexM4lf_math -l:libPDMFilter_CM4_GCC_wc32.a -mcpu=cortex-m4 -T"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab3_proj\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab3_proj.map" -Wl,--gc-sections -static -L"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab3_proj\Drivers\CMSIS\Lib\GCC" -L../Middlewares/ST/STM32_Audio/Addons/PDM/Lib --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab3_proj.elf
+ 
+arm-none-eabi-size  lab3_proj.elf 
+arm-none-eabi-objdump -h -S lab3_proj.elf  > "lab3_proj.list"
+   text	   data	    bss	    dec	    hex	filename
+  38048	    584	   5176	  43808	   ab20	lab3_proj.elf
+Finished building: default.size.stdout
+ 
+Finished building: lab3_proj.list
+ 
+
+17:57:53 Build Finished. 0 errors, 4 warnings. (took 2s.120ms)
+

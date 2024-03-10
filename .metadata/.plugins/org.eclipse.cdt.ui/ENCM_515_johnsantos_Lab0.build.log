@@ -1,0 +1,10 @@
+18:48:52 **** Incremental Build of configuration Debug for project ENCM_515_johnsantos_Lab0 ****
+make -j8 all 
+arm-none-eabi-size  ENCM_515_johnsantos_Lab0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  39264	    144	   4208	  43616	   aa60	ENCM_515_johnsantos_Lab0.elf
+Finished building: default.size.stdout
+ 
+
+18:48:52 Build Finished. 0 errors, 0 warnings. (took 364ms)
+

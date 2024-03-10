@@ -1,0 +1,167 @@
+17:43:03 **** Incremental Build of configuration Debug for project ENCM_515_johnsantos_lab3 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../USB_HOST/App -I../USB_HOST/Target -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:43:35: error: 'IDLE_STATUS' undeclared here (not in a function)
+   43 | __IO uint32_t PauseResumeStatus = IDLE_STATUS;
+      |                                   ^~~~~~~~~~~
+../Core/Src/main.c:48:1: error: unknown type name 'TIM_HandleTypeDef'; did you mean 'HCD_HandleTypeDef'?
+   48 | TIM_HandleTypeDef    TimHandle;
+      | ^~~~~~~~~~~~~~~~~
+      | HCD_HandleTypeDef
+../Core/Src/main.c:49:1: error: unknown type name 'TIM_OC_InitTypeDef'; did you mean 'I2C_InitTypeDef'?
+   49 | TIM_OC_InitTypeDef   sConfig;
+      | ^~~~~~~~~~~~~~~~~~
+      | I2C_InitTypeDef
+../Core/Src/main.c:53:31: warning: initialization of 'volatile int32_t *' {aka 'volatile long int *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   53 | volatile int32_t *raw_audio = 0x802002C; // ignore first 44 bytes of header
+      |                               ^~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:109:3: warning: implicit declaration of function 'BSP_LED_Init' [-Wimplicit-function-declaration]
+  109 |   BSP_LED_Init(LED3);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c:109:16: error: 'LED3' undeclared (first use in this function)
+  109 |   BSP_LED_Init(LED3);
+      |                ^~~~
+../Core/Src/main.c:109:16: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:110:16: error: 'LED4' undeclared (first use in this function)
+  110 |   BSP_LED_Init(LED4);
+      |                ^~~~
+../Core/Src/main.c:111:16: error: 'LED5' undeclared (first use in this function)
+  111 |   BSP_LED_Init(LED5);
+      |                ^~~~
+../Core/Src/main.c:112:16: error: 'LED6' undeclared (first use in this function)
+  112 |   BSP_LED_Init(LED6);
+      |                ^~~~
+../Core/Src/main.c:121:3: warning: implicit declaration of function 'BSP_PB_Init' [-Wimplicit-function-declaration]
+  121 |   BSP_PB_Init(BUTTON_KEY, BUTTON_MODE_EXTI);
+      |   ^~~~~~~~~~~
+../Core/Src/main.c:121:15: error: 'BUTTON_KEY' undeclared (first use in this function)
+  121 |   BSP_PB_Init(BUTTON_KEY, BUTTON_MODE_EXTI);
+      |               ^~~~~~~~~~
+../Core/Src/main.c:121:27: error: 'BUTTON_MODE_EXTI' undeclared (first use in this function)
+  121 |   BSP_PB_Init(BUTTON_KEY, BUTTON_MODE_EXTI);
+      |                           ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:124:12: error: request for member 'Instance' in something not a structure or union
+  124 |   TimHandle.Instance = TIMx;
+      |            ^
+../Core/Src/main.c:124:24: error: 'TIMx' undeclared (first use in this function); did you mean 'TIM1'?
+  124 |   TimHandle.Instance = TIMx;
+      |                        ^~~~
+      |                        TIM1
+../Core/Src/main.c:128:6: warning: implicit declaration of function 'BSP_AUDIO_OUT_Init' [-Wimplicit-function-declaration]
+  128 |   if(BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_AUTO, 60, 8000) != 0) {
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:128:25: error: 'OUTPUT_DEVICE_AUTO' undeclared (first use in this function)
+  128 |   if(BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_AUTO, 60, 8000) != 0) {
+      |                         ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:137:12: error: request for member 'Init' in something not a structure or union
+  137 |   TimHandle.Init.Period = 12499;
+      |            ^
+../Core/Src/main.c:138:12: error: request for member 'Init' in something not a structure or union
+  138 |   TimHandle.Init.Prescaler = 0;
+      |            ^
+../Core/Src/main.c:139:12: error: request for member 'Init' in something not a structure or union
+  139 |   TimHandle.Init.ClockDivision = 0;
+      |            ^
+../Core/Src/main.c:140:12: error: request for member 'Init' in something not a structure or union
+  140 |   TimHandle.Init.CounterMode = TIM_COUNTERMODE_UP;
+      |            ^
+../Core/Src/main.c:140:32: error: 'TIM_COUNTERMODE_UP' undeclared (first use in this function)
+  140 |   TimHandle.Init.CounterMode = TIM_COUNTERMODE_UP;
+      |                                ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:141:12: error: request for member 'Init' in something not a structure or union
+  141 |   TimHandle.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+      |            ^
+../Core/Src/main.c:141:38: error: 'TIM_AUTORELOAD_PRELOAD_DISABLE' undeclared (first use in this function)
+  141 |   TimHandle.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+      |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:142:6: warning: implicit declaration of function 'HAL_TIM_Base_Init' [-Wimplicit-function-declaration]
+  142 |   if(HAL_TIM_Base_Init(&TimHandle) != HAL_OK)
+      |      ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c:148:3: warning: implicit declaration of function 'ITM_Port32' [-Wimplicit-function-declaration]
+  148 |   ITM_Port32(30) = 0;
+      |   ^~~~~~~~~~
+../Core/Src/main.c:148:18: error: lvalue required as left operand of assignment
+  148 |   ITM_Port32(30) = 0;
+      |                  ^
+../Core/Src/main.c:150:6: warning: implicit declaration of function 'HAL_TIM_Base_Start_IT'; did you mean 'HAL_DMA_Start_IT'? [-Wimplicit-function-declaration]
+  150 |   if(HAL_TIM_Base_Start_IT(&TimHandle) != HAL_OK)
+      |      ^~~~~~~~~~~~~~~~~~~~~
+      |      HAL_DMA_Start_IT
+../Core/Src/main.c:187:32: error: lvalue required as left operand of assignment
+  187 |                 ITM_Port32(31) = 1;
+      |                                ^
+../Core/Src/main.c:189:32: error: lvalue required as left operand of assignment
+  189 |                 ITM_Port32(31) = 2;
+      |                                ^
+../Core/Src/main.c:192:32: error: lvalue required as left operand of assignment
+  192 |                 ITM_Port32(31) = 3;
+      |                                ^
+../Core/Src/main.c:221:17: warning: implicit declaration of function 'BSP_AUDIO_OUT_ChangeBuffer' [-Wimplicit-function-declaration]
+  221 |                 BSP_AUDIO_OUT_ChangeBuffer((uint16_t*)(filteredOutBufferB), BUFFER_SIZE*2);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:234:17: warning: implicit declaration of function 'BSP_AUDIO_OUT_Play' [-Wimplicit-function-declaration]
+  234 |                 BSP_AUDIO_OUT_Play((uint16_t*)(filteredOutBufferA), BUFFER_SIZE*2);
+      |                 ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:169:14: warning: unused variable 'i' [-Wunused-variable]
+  169 |   static int i = 0;
+      |              ^
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:311:7: error: 'KEY_BUTTON_PIN' undeclared (first use in this function)
+  311 |   if (KEY_BUTTON_PIN == GPIO_Pin)
+      |       ^~~~~~~~~~~~~~
+../Core/Src/main.c:313:12: warning: implicit declaration of function 'BSP_PB_GetState'; did you mean 'HAL_SPI_GetState'? [-Wimplicit-function-declaration]
+  313 |     while (BSP_PB_GetState(BUTTON_KEY) != RESET);
+      |            ^~~~~~~~~~~~~~~
+      |            HAL_SPI_GetState
+../Core/Src/main.c:313:28: error: 'BUTTON_KEY' undeclared (first use in this function)
+  313 |     while (BSP_PB_GetState(BUTTON_KEY) != RESET);
+      |                            ^~~~~~~~~~
+../Core/Src/main.c: In function 'Toggle_Leds':
+../Core/Src/main.c:325:3: warning: implicit declaration of function 'BSP_LED_Toggle' [-Wimplicit-function-declaration]
+  325 |   BSP_LED_Toggle(LED3);
+      |   ^~~~~~~~~~~~~~
+../Core/Src/main.c:325:18: error: 'LED3' undeclared (first use in this function)
+  325 |   BSP_LED_Toggle(LED3);
+      |                  ^~~~
+../Core/Src/main.c:329:18: error: 'LED5' undeclared (first use in this function)
+  329 |   BSP_LED_Toggle(LED5);
+      |                  ^~~~
+../Core/Src/main.c:331:18: error: 'LED6' undeclared (first use in this function)
+  331 |   BSP_LED_Toggle(LED6);
+      |                  ^~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:337:36: error: unknown type name 'TIM_HandleTypeDef'; did you mean 'HCD_HandleTypeDef'?
+  337 | void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+      |                                    ^~~~~~~~~~~~~~~~~
+      |                                    HCD_HandleTypeDef
+../Core/Src/main.c: In function 'Error_Handler':
+../Core/Src/main.c:378:3: warning: implicit declaration of function 'BSP_LED_On' [-Wimplicit-function-declaration]
+  378 |   BSP_LED_On(LED5);
+      |   ^~~~~~~~~~
+../Core/Src/main.c:378:14: error: 'LED5' undeclared (first use in this function)
+  378 |   BSP_LED_On(LED5);
+      |              ^~~~
+../Core/Src/main.c: In function 'GPIOA_Init':
+../Core/Src/main.c:388:33: error: 'SCOPE_CHECK_Pin' undeclared (first use in this function)
+  388 |           GPIO_InitStruct.Pin = SCOPE_CHECK_Pin;
+      |                                 ^~~~~~~~~~~~~~~
+../Core/Src/main.c:392:25: error: 'SCOPE_CHECK_GPIO_Port' undeclared (first use in this function); did you mean 'SPI1_SCK_GPIO_Port'?
+  392 |           HAL_GPIO_Init(SCOPE_CHECK_GPIO_Port, &GPIO_InitStruct);
+      |                         ^~~~~~~~~~~~~~~~~~~~~
+      |                         SPI1_SCK_GPIO_Port
+At top level:
+../Core/Src/main.c:169:14: warning: 'i' defined but not used [-Wunused-variable]
+  169 |   static int i = 0;
+      |              ^
+../Core/Src/main.c:469:16: warning: 'reverbEffect' defined but not used [-Wunused-function]
+  469 | static int16_t reverbEffect(int16_t newsample) {
+      |                ^~~~~~~~~~~~
+../Core/Src/main.c:55:12: warning: 'sample_count' defined but not used [-Wunused-variable]
+   55 | static int sample_count = 0;
+      |            ^~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+17:43:05 Build Failed. 33 errors, 16 warnings. (took 1s.276ms)
+

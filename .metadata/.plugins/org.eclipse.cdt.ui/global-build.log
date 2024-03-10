@@ -1,0 +1,639 @@
+17:32:27 **** Incremental Build of configuration Debug for project ENCM_515_johnsantos_lab3 ****
+make -j8 all 
+arm-none-eabi-size  ENCM_515_johnsantos_lab3.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35484	    132	   4196	  39812	   9b84	ENCM_515_johnsantos_lab3.elf
+Finished building: default.size.stdout
+ 
+17:39:17 **** Incremental Build of configuration Debug for project ENCM_515_johnsantos_Lab0 ****
+make -j8 all 
+arm-none-eabi-size  ENCM_515_johnsantos_Lab0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35556	    132	   4196	  39884	   9bcc	ENCM_515_johnsantos_Lab0.elf
+Finished building: default.size.stdout
+ 
+17:39:18 **** Incremental Build of configuration Debug for project ENCM_515_johnsantos_lab3 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../USB_HOST/App -I../USB_HOST/Target -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:43:35: error: 'IDLE_STATUS' undeclared here (not in a function)
+   43 | __IO uint32_t PauseResumeStatus = IDLE_STATUS;
+      |                                   ^~~~~~~~~~~
+../Core/Src/main.c:48:1: error: unknown type name 'TIM_HandleTypeDef'; did you mean 'HCD_HandleTypeDef'?
+   48 | TIM_HandleTypeDef    TimHandle;
+      | ^~~~~~~~~~~~~~~~~
+      | HCD_HandleTypeDef
+../Core/Src/main.c:49:1: error: unknown type name 'TIM_OC_InitTypeDef'; did you mean 'I2C_InitTypeDef'?
+   49 | TIM_OC_InitTypeDef   sConfig;
+      | ^~~~~~~~~~~~~~~~~~
+      | I2C_InitTypeDef
+../Core/Src/main.c:53:31: warning: initialization of 'volatile int32_t *' {aka 'volatile long int *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   53 | volatile int32_t *raw_audio = 0x802002C; // ignore first 44 bytes of header
+      |                               ^~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:109:3: warning: implicit declaration of function 'BSP_LED_Init' [-Wimplicit-function-declaration]
+  109 |   BSP_LED_Init(LED3);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c:109:16: error: 'LED3' undeclared (first use in this function)
+  109 |   BSP_LED_Init(LED3);
+      |                ^~~~
+../Core/Src/main.c:109:16: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:110:16: error: 'LED4' undeclared (first use in this function)
+  110 |   BSP_LED_Init(LED4);
+      |                ^~~~
+../Core/Src/main.c:111:16: error: 'LED5' undeclared (first use in this function)
+  111 |   BSP_LED_Init(LED5);
+      |                ^~~~
+../Core/Src/main.c:112:16: error: 'LED6' undeclared (first use in this function)
+  112 |   BSP_LED_Init(LED6);
+      |                ^~~~
+../Core/Src/main.c:121:3: warning: implicit declaration of function 'BSP_PB_Init' [-Wimplicit-function-declaration]
+  121 |   BSP_PB_Init(BUTTON_KEY, BUTTON_MODE_EXTI);
+      |   ^~~~~~~~~~~
+../Core/Src/main.c:121:15: error: 'BUTTON_KEY' undeclared (first use in this function)
+  121 |   BSP_PB_Init(BUTTON_KEY, BUTTON_MODE_EXTI);
+      |               ^~~~~~~~~~
+../Core/Src/main.c:121:27: error: 'BUTTON_MODE_EXTI' undeclared (first use in this function)
+  121 |   BSP_PB_Init(BUTTON_KEY, BUTTON_MODE_EXTI);
+      |                           ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:124:12: error: request for member 'Instance' in something not a structure or union
+  124 |   TimHandle.Instance = TIMx;
+      |            ^
+../Core/Src/main.c:124:24: error: 'TIMx' undeclared (first use in this function); did you mean 'TIM1'?
+  124 |   TimHandle.Instance = TIMx;
+      |                        ^~~~
+      |                        TIM1
+../Core/Src/main.c:128:6: warning: implicit declaration of function 'BSP_AUDIO_OUT_Init' [-Wimplicit-function-declaration]
+  128 |   if(BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_AUTO, 60, 8000) != 0) {
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:128:25: error: 'OUTPUT_DEVICE_AUTO' undeclared (first use in this function)
+  128 |   if(BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_AUTO, 60, 8000) != 0) {
+      |                         ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:137:12: error: request for member 'Init' in something not a structure or union
+  137 |   TimHandle.Init.Period = 12499;
+      |            ^
+../Core/Src/main.c:138:12: error: request for member 'Init' in something not a structure or union
+  138 |   TimHandle.Init.Prescaler = 0;
+      |            ^
+../Core/Src/main.c:139:12: error: request for member 'Init' in something not a structure or union
+  139 |   TimHandle.Init.ClockDivision = 0;
+      |            ^
+../Core/Src/main.c:140:12: error: request for member 'Init' in something not a structure or union
+  140 |   TimHandle.Init.CounterMode = TIM_COUNTERMODE_UP;
+      |            ^
+../Core/Src/main.c:140:32: error: 'TIM_COUNTERMODE_UP' undeclared (first use in this function)
+  140 |   TimHandle.Init.CounterMode = TIM_COUNTERMODE_UP;
+      |                                ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:141:12: error: request for member 'Init' in something not a structure or union
+  141 |   TimHandle.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+      |            ^
+../Core/Src/main.c:141:38: error: 'TIM_AUTORELOAD_PRELOAD_DISABLE' undeclared (first use in this function)
+  141 |   TimHandle.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+      |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:142:6: warning: implicit declaration of function 'HAL_TIM_Base_Init' [-Wimplicit-function-declaration]
+  142 |   if(HAL_TIM_Base_Init(&TimHandle) != HAL_OK)
+      |      ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c:148:3: warning: implicit declaration of function 'ITM_Port32' [-Wimplicit-function-declaration]
+  148 |   ITM_Port32(30) = 0;
+      |   ^~~~~~~~~~
+../Core/Src/main.c:148:18: error: lvalue required as left operand of assignment
+  148 |   ITM_Port32(30) = 0;
+      |                  ^
+../Core/Src/main.c:150:6: warning: implicit declaration of function 'HAL_TIM_Base_Start_IT'; did you mean 'HAL_DMA_Start_IT'? [-Wimplicit-function-declaration]
+  150 |   if(HAL_TIM_Base_Start_IT(&TimHandle) != HAL_OK)
+      |      ^~~~~~~~~~~~~~~~~~~~~
+      |      HAL_DMA_Start_IT
+../Core/Src/main.c:187:32: error: lvalue required as left operand of assignment
+  187 |                 ITM_Port32(31) = 1;
+      |                                ^
+../Core/Src/main.c:189:32: error: lvalue required as left operand of assignment
+  189 |                 ITM_Port32(31) = 2;
+      |                                ^
+../Core/Src/main.c:192:32: error: lvalue required as left operand of assignment
+  192 |                 ITM_Port32(31) = 3;
+      |                                ^
+../Core/Src/main.c:221:17: warning: implicit declaration of function 'BSP_AUDIO_OUT_ChangeBuffer' [-Wimplicit-function-declaration]
+  221 |                 BSP_AUDIO_OUT_ChangeBuffer((uint16_t*)(filteredOutBufferB), BUFFER_SIZE*2);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:234:17: warning: implicit declaration of function 'BSP_AUDIO_OUT_Play' [-Wimplicit-function-declaration]
+  234 |                 BSP_AUDIO_OUT_Play((uint16_t*)(filteredOutBufferA), BUFFER_SIZE*2);
+      |                 ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:169:14: warning: unused variable 'i' [-Wunused-variable]
+  169 |   static int i = 0;
+      |              ^
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:311:7: error: 'KEY_BUTTON_PIN' undeclared (first use in this function)
+  311 |   if (KEY_BUTTON_PIN == GPIO_Pin)
+      |       ^~~~~~~~~~~~~~
+../Core/Src/main.c:313:12: warning: implicit declaration of function 'BSP_PB_GetState'; did you mean 'HAL_SPI_GetState'? [-Wimplicit-function-declaration]
+  313 |     while (BSP_PB_GetState(BUTTON_KEY) != RESET);
+      |            ^~~~~~~~~~~~~~~
+      |            HAL_SPI_GetState
+../Core/Src/main.c:313:28: error: 'BUTTON_KEY' undeclared (first use in this function)
+  313 |     while (BSP_PB_GetState(BUTTON_KEY) != RESET);
+      |                            ^~~~~~~~~~
+../Core/Src/main.c: In function 'Toggle_Leds':
+../Core/Src/main.c:325:3: warning: implicit declaration of function 'BSP_LED_Toggle' [-Wimplicit-function-declaration]
+  325 |   BSP_LED_Toggle(LED3);
+      |   ^~~~~~~~~~~~~~
+../Core/Src/main.c:325:18: error: 'LED3' undeclared (first use in this function)
+  325 |   BSP_LED_Toggle(LED3);
+      |                  ^~~~
+../Core/Src/main.c:329:18: error: 'LED5' undeclared (first use in this function)
+  329 |   BSP_LED_Toggle(LED5);
+      |                  ^~~~
+../Core/Src/main.c:331:18: error: 'LED6' undeclared (first use in this function)
+  331 |   BSP_LED_Toggle(LED6);
+      |                  ^~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:337:36: error: unknown type name 'TIM_HandleTypeDef'; did you mean 'HCD_HandleTypeDef'?
+  337 | void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+      |                                    ^~~~~~~~~~~~~~~~~
+      |                                    HCD_HandleTypeDef
+../Core/Src/main.c: In function 'Error_Handler':
+../Core/Src/main.c:378:3: warning: implicit declaration of function 'BSP_LED_On' [-Wimplicit-function-declaration]
+  378 |   BSP_LED_On(LED5);
+      |   ^~~~~~~~~~
+../Core/Src/main.c:378:14: error: 'LED5' undeclared (first use in this function)
+  378 |   BSP_LED_On(LED5);
+      |              ^~~~
+../Core/Src/main.c: In function 'GPIOA_Init':
+../Core/Src/main.c:388:33: error: 'SCOPE_CHECK_Pin' undeclared (first use in this function)
+  388 |           GPIO_InitStruct.Pin = SCOPE_CHECK_Pin;
+      |                                 ^~~~~~~~~~~~~~~
+../Core/Src/main.c:392:25: error: 'SCOPE_CHECK_GPIO_Port' undeclared (first use in this function); did you mean 'SPI1_SCK_GPIO_Port'?
+  392 |           HAL_GPIO_Init(SCOPE_CHECK_GPIO_Port, &GPIO_InitStruct);
+      |                         ^~~~~~~~~~~~~~~~~~~~~
+      |                         SPI1_SCK_GPIO_Port
+At top level:
+../Core/Src/main.c:169:14: warning: 'i' defined but not used [-Wunused-variable]
+  169 |   static int i = 0;
+      |              ^
+../Core/Src/main.c:469:16: warning: 'reverbEffect' defined but not used [-Wunused-function]
+  469 | static int16_t reverbEffect(int16_t newsample) {
+      |                ^~~~~~~~~~~~
+../Core/Src/main.c:55:12: warning: 'sample_count' defined but not used [-Wunused-variable]
+   55 | static int sample_count = 0;
+      |            ^~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:43:02 **** Incremental Build of configuration Debug for project ENCM_515_johnsantos_Lab0 ****
+make -j8 all 
+arm-none-eabi-size  ENCM_515_johnsantos_Lab0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35556	    132	   4196	  39884	   9bcc	ENCM_515_johnsantos_Lab0.elf
+Finished building: default.size.stdout
+ 
+17:43:03 **** Incremental Build of configuration Debug for project ENCM_515_johnsantos_lab3 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../USB_HOST/App -I../USB_HOST/Target -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:43:35: error: 'IDLE_STATUS' undeclared here (not in a function)
+   43 | __IO uint32_t PauseResumeStatus = IDLE_STATUS;
+      |                                   ^~~~~~~~~~~
+../Core/Src/main.c:48:1: error: unknown type name 'TIM_HandleTypeDef'; did you mean 'HCD_HandleTypeDef'?
+   48 | TIM_HandleTypeDef    TimHandle;
+      | ^~~~~~~~~~~~~~~~~
+      | HCD_HandleTypeDef
+../Core/Src/main.c:49:1: error: unknown type name 'TIM_OC_InitTypeDef'; did you mean 'I2C_InitTypeDef'?
+   49 | TIM_OC_InitTypeDef   sConfig;
+      | ^~~~~~~~~~~~~~~~~~
+      | I2C_InitTypeDef
+../Core/Src/main.c:53:31: warning: initialization of 'volatile int32_t *' {aka 'volatile long int *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   53 | volatile int32_t *raw_audio = 0x802002C; // ignore first 44 bytes of header
+      |                               ^~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:109:3: warning: implicit declaration of function 'BSP_LED_Init' [-Wimplicit-function-declaration]
+  109 |   BSP_LED_Init(LED3);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c:109:16: error: 'LED3' undeclared (first use in this function)
+  109 |   BSP_LED_Init(LED3);
+      |                ^~~~
+../Core/Src/main.c:109:16: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:110:16: error: 'LED4' undeclared (first use in this function)
+  110 |   BSP_LED_Init(LED4);
+      |                ^~~~
+../Core/Src/main.c:111:16: error: 'LED5' undeclared (first use in this function)
+  111 |   BSP_LED_Init(LED5);
+      |                ^~~~
+../Core/Src/main.c:112:16: error: 'LED6' undeclared (first use in this function)
+  112 |   BSP_LED_Init(LED6);
+      |                ^~~~
+../Core/Src/main.c:121:3: warning: implicit declaration of function 'BSP_PB_Init' [-Wimplicit-function-declaration]
+  121 |   BSP_PB_Init(BUTTON_KEY, BUTTON_MODE_EXTI);
+      |   ^~~~~~~~~~~
+../Core/Src/main.c:121:15: error: 'BUTTON_KEY' undeclared (first use in this function)
+  121 |   BSP_PB_Init(BUTTON_KEY, BUTTON_MODE_EXTI);
+      |               ^~~~~~~~~~
+../Core/Src/main.c:121:27: error: 'BUTTON_MODE_EXTI' undeclared (first use in this function)
+  121 |   BSP_PB_Init(BUTTON_KEY, BUTTON_MODE_EXTI);
+      |                           ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:124:12: error: request for member 'Instance' in something not a structure or union
+  124 |   TimHandle.Instance = TIMx;
+      |            ^
+../Core/Src/main.c:124:24: error: 'TIMx' undeclared (first use in this function); did you mean 'TIM1'?
+  124 |   TimHandle.Instance = TIMx;
+      |                        ^~~~
+      |                        TIM1
+../Core/Src/main.c:128:6: warning: implicit declaration of function 'BSP_AUDIO_OUT_Init' [-Wimplicit-function-declaration]
+  128 |   if(BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_AUTO, 60, 8000) != 0) {
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:128:25: error: 'OUTPUT_DEVICE_AUTO' undeclared (first use in this function)
+  128 |   if(BSP_AUDIO_OUT_Init(OUTPUT_DEVICE_AUTO, 60, 8000) != 0) {
+      |                         ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:137:12: error: request for member 'Init' in something not a structure or union
+  137 |   TimHandle.Init.Period = 12499;
+      |            ^
+../Core/Src/main.c:138:12: error: request for member 'Init' in something not a structure or union
+  138 |   TimHandle.Init.Prescaler = 0;
+      |            ^
+../Core/Src/main.c:139:12: error: request for member 'Init' in something not a structure or union
+  139 |   TimHandle.Init.ClockDivision = 0;
+      |            ^
+../Core/Src/main.c:140:12: error: request for member 'Init' in something not a structure or union
+  140 |   TimHandle.Init.CounterMode = TIM_COUNTERMODE_UP;
+      |            ^
+../Core/Src/main.c:140:32: error: 'TIM_COUNTERMODE_UP' undeclared (first use in this function)
+  140 |   TimHandle.Init.CounterMode = TIM_COUNTERMODE_UP;
+      |                                ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:141:12: error: request for member 'Init' in something not a structure or union
+  141 |   TimHandle.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+      |            ^
+../Core/Src/main.c:141:38: error: 'TIM_AUTORELOAD_PRELOAD_DISABLE' undeclared (first use in this function)
+  141 |   TimHandle.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+      |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:142:6: warning: implicit declaration of function 'HAL_TIM_Base_Init' [-Wimplicit-function-declaration]
+  142 |   if(HAL_TIM_Base_Init(&TimHandle) != HAL_OK)
+      |      ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c:148:3: warning: implicit declaration of function 'ITM_Port32' [-Wimplicit-function-declaration]
+  148 |   ITM_Port32(30) = 0;
+      |   ^~~~~~~~~~
+../Core/Src/main.c:148:18: error: lvalue required as left operand of assignment
+  148 |   ITM_Port32(30) = 0;
+      |                  ^
+../Core/Src/main.c:150:6: warning: implicit declaration of function 'HAL_TIM_Base_Start_IT'; did you mean 'HAL_DMA_Start_IT'? [-Wimplicit-function-declaration]
+  150 |   if(HAL_TIM_Base_Start_IT(&TimHandle) != HAL_OK)
+      |      ^~~~~~~~~~~~~~~~~~~~~
+      |      HAL_DMA_Start_IT
+../Core/Src/main.c:187:32: error: lvalue required as left operand of assignment
+  187 |                 ITM_Port32(31) = 1;
+      |                                ^
+../Core/Src/main.c:189:32: error: lvalue required as left operand of assignment
+  189 |                 ITM_Port32(31) = 2;
+      |                                ^
+../Core/Src/main.c:192:32: error: lvalue required as left operand of assignment
+  192 |                 ITM_Port32(31) = 3;
+      |                                ^
+../Core/Src/main.c:221:17: warning: implicit declaration of function 'BSP_AUDIO_OUT_ChangeBuffer' [-Wimplicit-function-declaration]
+  221 |                 BSP_AUDIO_OUT_ChangeBuffer((uint16_t*)(filteredOutBufferB), BUFFER_SIZE*2);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:234:17: warning: implicit declaration of function 'BSP_AUDIO_OUT_Play' [-Wimplicit-function-declaration]
+  234 |                 BSP_AUDIO_OUT_Play((uint16_t*)(filteredOutBufferA), BUFFER_SIZE*2);
+      |                 ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:169:14: warning: unused variable 'i' [-Wunused-variable]
+  169 |   static int i = 0;
+      |              ^
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:311:7: error: 'KEY_BUTTON_PIN' undeclared (first use in this function)
+  311 |   if (KEY_BUTTON_PIN == GPIO_Pin)
+      |       ^~~~~~~~~~~~~~
+../Core/Src/main.c:313:12: warning: implicit declaration of function 'BSP_PB_GetState'; did you mean 'HAL_SPI_GetState'? [-Wimplicit-function-declaration]
+  313 |     while (BSP_PB_GetState(BUTTON_KEY) != RESET);
+      |            ^~~~~~~~~~~~~~~
+      |            HAL_SPI_GetState
+../Core/Src/main.c:313:28: error: 'BUTTON_KEY' undeclared (first use in this function)
+  313 |     while (BSP_PB_GetState(BUTTON_KEY) != RESET);
+      |                            ^~~~~~~~~~
+../Core/Src/main.c: In function 'Toggle_Leds':
+../Core/Src/main.c:325:3: warning: implicit declaration of function 'BSP_LED_Toggle' [-Wimplicit-function-declaration]
+  325 |   BSP_LED_Toggle(LED3);
+      |   ^~~~~~~~~~~~~~
+../Core/Src/main.c:325:18: error: 'LED3' undeclared (first use in this function)
+  325 |   BSP_LED_Toggle(LED3);
+      |                  ^~~~
+../Core/Src/main.c:329:18: error: 'LED5' undeclared (first use in this function)
+  329 |   BSP_LED_Toggle(LED5);
+      |                  ^~~~
+../Core/Src/main.c:331:18: error: 'LED6' undeclared (first use in this function)
+  331 |   BSP_LED_Toggle(LED6);
+      |                  ^~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:337:36: error: unknown type name 'TIM_HandleTypeDef'; did you mean 'HCD_HandleTypeDef'?
+  337 | void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+      |                                    ^~~~~~~~~~~~~~~~~
+      |                                    HCD_HandleTypeDef
+../Core/Src/main.c: In function 'Error_Handler':
+../Core/Src/main.c:378:3: warning: implicit declaration of function 'BSP_LED_On' [-Wimplicit-function-declaration]
+  378 |   BSP_LED_On(LED5);
+      |   ^~~~~~~~~~
+../Core/Src/main.c:378:14: error: 'LED5' undeclared (first use in this function)
+  378 |   BSP_LED_On(LED5);
+      |              ^~~~
+../Core/Src/main.c: In function 'GPIOA_Init':
+../Core/Src/main.c:388:33: error: 'SCOPE_CHECK_Pin' undeclared (first use in this function)
+  388 |           GPIO_InitStruct.Pin = SCOPE_CHECK_Pin;
+      |                                 ^~~~~~~~~~~~~~~
+../Core/Src/main.c:392:25: error: 'SCOPE_CHECK_GPIO_Port' undeclared (first use in this function); did you mean 'SPI1_SCK_GPIO_Port'?
+  392 |           HAL_GPIO_Init(SCOPE_CHECK_GPIO_Port, &GPIO_InitStruct);
+      |                         ^~~~~~~~~~~~~~~~~~~~~
+      |                         SPI1_SCK_GPIO_Port
+At top level:
+../Core/Src/main.c:169:14: warning: 'i' defined but not used [-Wunused-variable]
+  169 |   static int i = 0;
+      |              ^
+../Core/Src/main.c:469:16: warning: 'reverbEffect' defined but not used [-Wunused-function]
+  469 | static int16_t reverbEffect(int16_t newsample) {
+      |                ^~~~~~~~~~~~
+../Core/Src/main.c:55:12: warning: 'sample_count' defined but not used [-Wunused-variable]
+   55 | static int sample_count = 0;
+      |            ^~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+17:43:05 **** Clean-only build of configuration Debug for project lab3_proj ****
+make -j8 clean 
+rm -rf ./PDM2PCM/App/pdm2pcm.d ./PDM2PCM/App/pdm2pcm.o
+rm -rf ./Drivers/stm32f411e/Src/stm32f411e_discovery.d ./Drivers/stm32f411e/Src/stm32f411e_discovery.o ./Drivers/stm32f411e/Src/stm32f411e_discovery_accelerometer.d ./Drivers/stm32f411e/Src/stm32f411e_discovery_accelerometer.o ./Drivers/stm32f411e/Src/stm32f411e_discovery_audio.d ./Drivers/stm32f411e/Src/stm32f411e_discovery_audio.o ./Drivers/stm32f411e/Src/stm32f411e_discovery_gyroscope.d ./Drivers/stm32f411e/Src/stm32f411e_discovery_gyroscope.o
+rm -rf ./Drivers/stm32f411e/Components/lsm303dlhc/lsm303dlhc.d ./Drivers/stm32f411e/Components/lsm303dlhc/lsm303dlhc.o
+rm -rf ./Drivers/stm32f411e/Components/lsm303agr/lsm303agr.d ./Drivers/stm32f411e/Components/lsm303agr/lsm303agr.o
+rm -rf ./Drivers/stm32f411e/Components/l3gd20/l3gd20.d ./Drivers/stm32f411e/Components/l3gd20/l3gd20.o
+rm -rf ./Drivers/stm32f411e/Components/i3g4250d/i3g4250d.d ./Drivers/stm32f411e/Components/i3g4250d/i3g4250d.o
+rm -rf ./Drivers/stm32f411e/Components/cs43l22/cs43l22.d ./Drivers/stm32f411e/Components/cs43l22/cs43l22.o
+rm -rf ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_crc.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_crc.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
+rm -rf ./Core/Startup/startup_stm32f411vetx.d ./Core/Startup/startup_stm32f411vetx.o
+rm -rf ./Core/Src/audio_play.d ./Core/Src/audio_play.o ./Core/Src/audio_record.d ./Core/Src/audio_record.o ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/mems.d ./Core/Src/mems.o ./Core/Src/stm32f4xx_hal_msp.d ./Core/Src/stm32f4xx_hal_msp.o ./Core/Src/stm32f4xx_it.d ./Core/Src/stm32f4xx_it.o ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/system_stm32f4xx.d ./Core/Src/system_stm32f4xx.o
+rm -rf default.size.stdout lab3_proj.bin lab3_proj.elf lab3_proj.list
+ 
+17:43:06 **** Build of configuration Debug for project lab3_proj ****
+make -j8 all 
+arm-none-eabi-gcc "../PDM2PCM/App/pdm2pcm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"PDM2PCM/App/pdm2pcm.d" -MT"PDM2PCM/App/pdm2pcm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "PDM2PCM/App/pdm2pcm.o"
+arm-none-eabi-gcc "../Drivers/stm32f411e/Src/stm32f411e_discovery.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/stm32f411e/Src/stm32f411e_discovery.d" -MT"Drivers/stm32f411e/Src/stm32f411e_discovery.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/stm32f411e/Src/stm32f411e_discovery.o"
+arm-none-eabi-gcc "../Drivers/stm32f411e/Src/stm32f411e_discovery_accelerometer.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/stm32f411e/Src/stm32f411e_discovery_accelerometer.d" -MT"Drivers/stm32f411e/Src/stm32f411e_discovery_accelerometer.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/stm32f411e/Src/stm32f411e_discovery_accelerometer.o"
+arm-none-eabi-gcc "../Drivers/stm32f411e/Src/stm32f411e_discovery_audio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/stm32f411e/Src/stm32f411e_discovery_audio.d" -MT"Drivers/stm32f411e/Src/stm32f411e_discovery_audio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/stm32f411e/Src/stm32f411e_discovery_audio.o"
+arm-none-eabi-gcc "../Drivers/stm32f411e/Src/stm32f411e_discovery_gyroscope.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/stm32f411e/Src/stm32f411e_discovery_gyroscope.d" -MT"Drivers/stm32f411e/Src/stm32f411e_discovery_gyroscope.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/stm32f411e/Src/stm32f411e_discovery_gyroscope.o"
+arm-none-eabi-gcc "../Drivers/stm32f411e/Components/lsm303dlhc/lsm303dlhc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/stm32f411e/Components/lsm303dlhc/lsm303dlhc.d" -MT"Drivers/stm32f411e/Components/lsm303dlhc/lsm303dlhc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/stm32f411e/Components/lsm303dlhc/lsm303dlhc.o"
+arm-none-eabi-gcc "../Drivers/stm32f411e/Components/lsm303agr/lsm303agr.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/stm32f411e/Components/lsm303agr/lsm303agr.d" -MT"Drivers/stm32f411e/Components/lsm303agr/lsm303agr.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/stm32f411e/Components/lsm303agr/lsm303agr.o"
+arm-none-eabi-gcc "../Drivers/stm32f411e/Components/l3gd20/l3gd20.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/stm32f411e/Components/l3gd20/l3gd20.d" -MT"Drivers/stm32f411e/Components/l3gd20/l3gd20.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/stm32f411e/Components/l3gd20/l3gd20.o"
+arm-none-eabi-gcc "../Drivers/stm32f411e/Components/i3g4250d/i3g4250d.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/stm32f411e/Components/i3g4250d/i3g4250d.d" -MT"Drivers/stm32f411e/Components/i3g4250d/i3g4250d.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/stm32f411e/Components/i3g4250d/i3g4250d.o"
+arm-none-eabi-gcc "../Drivers/stm32f411e/Components/cs43l22/cs43l22.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/stm32f411e/Components/cs43l22/cs43l22.d" -MT"Drivers/stm32f411e/Components/cs43l22/cs43l22.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/stm32f411e/Components/cs43l22/cs43l22.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_crc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_crc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_crc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_crc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o"
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Core/Startup/startup_stm32f411vetx.d" -MT"Core/Startup/startup_stm32f411vetx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Startup/startup_stm32f411vetx.o" "../Core/Startup/startup_stm32f411vetx.s"
+arm-none-eabi-gcc "../Core/Src/audio_play.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/audio_play.d" -MT"Core/Src/audio_play.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/audio_play.o"
+arm-none-eabi-gcc "../Core/Src/audio_record.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/audio_record.d" -MT"Core/Src/audio_record.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/audio_record.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/mems.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/mems.d" -MT"Core/Src/mems.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/mems.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/main.c:53:31: warning: initialization of 'volatile int32_t *' {aka 'volatile long int *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   53 | volatile int32_t *raw_audio = 0x802002C; // ignore first 44 bytes of header
+      |                               ^~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:169:14: warning: unused variable 'i' [-Wunused-variable]
+  169 |   static int i = 0;
+      |              ^
+At top level:
+../Core/Src/main.c:169:14: warning: 'i' defined but not used [-Wunused-variable]
+../Core/Src/main.c:469:16: warning: 'reverbEffect' defined but not used [-Wunused-function]
+  469 | static int16_t reverbEffect(int16_t newsample) {
+      |                ^~~~~~~~~~~~
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f4xx.d" -MT"Core/Src/system_stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32f4xx.o"
+arm-none-eabi-gcc -o "lab3_proj.elf" @"objects.list"  -larm_cortexM4lf_math -l:libPDMFilter_CM4_GCC_wc32.a -mcpu=cortex-m4 -T"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab3_proj\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab3_proj.map" -Wl,--gc-sections -static -L"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab3_proj\Drivers\CMSIS\Lib\GCC" -L../Middlewares/ST/STM32_Audio/Addons/PDM/Lib --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab3_proj.elf
+ 
+arm-none-eabi-size  lab3_proj.elf 
+arm-none-eabi-objdump -h -S lab3_proj.elf  > "lab3_proj.list"
+   text	   data	    bss	    dec	    hex	filename
+  38048	    584	   5176	  43808	   ab20	lab3_proj.elf
+Finished building: default.size.stdout
+ 
+Finished building: lab3_proj.list
+ 
+17:44:28 **** Incremental Build of configuration Debug for project lab3_proj ****
+make -j8 all 
+arm-none-eabi-size  lab3_proj.elf 
+   text	   data	    bss	    dec	    hex	filename
+  38048	    584	   5176	  43808	   ab20	lab3_proj.elf
+Finished building: default.size.stdout
+ 
+17:44:44 **** Incremental Build of configuration Debug for project lab3_proj ****
+make -j8 all 
+arm-none-eabi-size  lab3_proj.elf 
+   text	   data	    bss	    dec	    hex	filename
+  38048	    584	   5176	  43808	   ab20	lab3_proj.elf
+Finished building: default.size.stdout
+ 
+17:51:14 **** Incremental Build of configuration Debug for project lab3_proj ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:53:31: warning: initialization of 'volatile int32_t *' {aka 'volatile long int *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   53 | volatile int32_t *raw_audio = 0x802002C; // ignore first 44 bytes of header
+      |                               ^~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:169:14: warning: unused variable 'i' [-Wunused-variable]
+  169 |   static int i = 0;
+      |              ^
+At top level:
+../Core/Src/main.c:169:14: warning: 'i' defined but not used [-Wunused-variable]
+../Core/Src/main.c:450:16: warning: 'echoEffect' defined but not used [-Wunused-function]
+  450 | static int16_t echoEffect(int16_t newsample) {
+      |                ^~~~~~~~~~
+arm-none-eabi-gcc -o "lab3_proj.elf" @"objects.list"  -larm_cortexM4lf_math -l:libPDMFilter_CM4_GCC_wc32.a -mcpu=cortex-m4 -T"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab3_proj\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab3_proj.map" -Wl,--gc-sections -static -L"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab3_proj\Drivers\CMSIS\Lib\GCC" -L../Middlewares/ST/STM32_Audio/Addons/PDM/Lib --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab3_proj.elf
+ 
+arm-none-eabi-size  lab3_proj.elf 
+arm-none-eabi-objdump -h -S lab3_proj.elf  > "lab3_proj.list"
+   text	   data	    bss	    dec	    hex	filename
+  38048	    584	   5176	  43808	   ab20	lab3_proj.elf
+Finished building: default.size.stdout
+ 
+Finished building: lab3_proj.list
+ 
+17:57:50 **** Incremental Build of configuration Debug for project lab3_proj ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab3_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:53:31: warning: initialization of 'volatile int32_t *' {aka 'volatile long int *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   53 | volatile int32_t *raw_audio = 0x802002C; // ignore first 44 bytes of header
+      |                               ^~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:169:14: warning: unused variable 'i' [-Wunused-variable]
+  169 |   static int i = 0;
+      |              ^
+At top level:
+../Core/Src/main.c:169:14: warning: 'i' defined but not used [-Wunused-variable]
+../Core/Src/main.c:469:16: warning: 'reverbEffect' defined but not used [-Wunused-function]
+  469 | static int16_t reverbEffect(int16_t newsample) {
+      |                ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "lab3_proj.elf" @"objects.list"  -larm_cortexM4lf_math -l:libPDMFilter_CM4_GCC_wc32.a -mcpu=cortex-m4 -T"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab3_proj\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab3_proj.map" -Wl,--gc-sections -static -L"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab3_proj\Drivers\CMSIS\Lib\GCC" -L../Middlewares/ST/STM32_Audio/Addons/PDM/Lib --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab3_proj.elf
+ 
+arm-none-eabi-size  lab3_proj.elf 
+arm-none-eabi-objdump -h -S lab3_proj.elf  > "lab3_proj.list"
+   text	   data	    bss	    dec	    hex	filename
+  38048	    584	   5176	  43808	   ab20	lab3_proj.elf
+Finished building: default.size.stdout
+ 
+Finished building: lab3_proj.list
+ 
+18:03:44 **** Incremental Build of configuration Debug for project ENCM_515_johnsantos_Lab0 ****
+make -j8 all 
+arm-none-eabi-size  ENCM_515_johnsantos_Lab0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35556	    132	   4196	  39884	   9bcc	ENCM_515_johnsantos_Lab0.elf
+Finished building: default.size.stdout
+ 
+18:04:07 **** Incremental Build of configuration Debug for project ENCM_515_johnsantos_Lab0 ****
+make -j8 all 
+arm-none-eabi-size  ENCM_515_johnsantos_Lab0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35556	    132	   4196	  39884	   9bcc	ENCM_515_johnsantos_Lab0.elf
+Finished building: default.size.stdout
+ 
+18:17:11 **** Incremental Build of configuration Debug for project ENCM_515_johnsantos_Lab0 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../USB_HOST/App -I../USB_HOST/Target -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:121:9: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+  121 |         printf("\n The LED was toggled!");
+      |         ^~~~~~
+../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   21 | #include "usb_host.h"
+  +++ |+#include <stdio.h>
+   22 | 
+../Core/Src/main.c:121:9: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+  121 |         printf("\n The LED was toggled!");
+      |         ^~~~~~
+../Core/Src/main.c:121:9: note: include '<stdio.h>' or provide a declaration of 'printf'
+arm-none-eabi-gcc -o "ENCM_515_johnsantos_Lab0.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\ENCM_515_johnsantos_Lab0\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ENCM_515_johnsantos_Lab0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ENCM_515_johnsantos_Lab0.elf
+ 
+arm-none-eabi-size  ENCM_515_johnsantos_Lab0.elf 
+arm-none-eabi-objdump -h -S ENCM_515_johnsantos_Lab0.elf  > "ENCM_515_johnsantos_Lab0.list"
+   text	   data	    bss	    dec	    hex	filename
+  39168	    144	   4200	  43512	   a9f8	ENCM_515_johnsantos_Lab0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ENCM_515_johnsantos_Lab0.list
+ 
+18:18:36 **** Incremental Build of configuration Debug for project ENCM_515_johnsantos_Lab0 ****
+make -j8 all 
+arm-none-eabi-size  ENCM_515_johnsantos_Lab0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  39168	    144	   4200	  43512	   a9f8	ENCM_515_johnsantos_Lab0.elf
+Finished building: default.size.stdout
+ 
+18:23:20 **** Incremental Build of configuration Debug for project ENCM_515_johnsantos_Lab0 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../USB_HOST/App -I../USB_HOST/Target -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:123:9: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+  123 |         printf("\n The LED was toggled! \n\r");
+      |         ^~~~~~
+../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   21 | #include "usb_host.h"
+  +++ |+#include <stdio.h>
+   22 | 
+../Core/Src/main.c:123:9: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+  123 |         printf("\n The LED was toggled! \n\r");
+      |         ^~~~~~
+../Core/Src/main.c:123:9: note: include '<stdio.h>' or provide a declaration of 'printf'
+arm-none-eabi-gcc -o "ENCM_515_johnsantos_Lab0.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\ENCM_515_johnsantos_Lab0\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ENCM_515_johnsantos_Lab0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ENCM_515_johnsantos_Lab0.elf
+ 
+arm-none-eabi-size  ENCM_515_johnsantos_Lab0.elf 
+arm-none-eabi-objdump -h -S ENCM_515_johnsantos_Lab0.elf  > "ENCM_515_johnsantos_Lab0.list"
+   text	   data	    bss	    dec	    hex	filename
+  39200	    144	   4208	  43552	   aa20	ENCM_515_johnsantos_Lab0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ENCM_515_johnsantos_Lab0.list
+ 
+18:24:56 **** Incremental Build of configuration Debug for project ENCM_515_johnsantos_Lab0 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../USB_HOST/App -I../USB_HOST/Target -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ENCM_515_johnsantos_Lab0.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\ENCM_515_johnsantos_Lab0\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ENCM_515_johnsantos_Lab0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ENCM_515_johnsantos_Lab0.elf
+ 
+arm-none-eabi-size  ENCM_515_johnsantos_Lab0.elf 
+arm-none-eabi-objdump -h -S ENCM_515_johnsantos_Lab0.elf  > "ENCM_515_johnsantos_Lab0.list"
+   text	   data	    bss	    dec	    hex	filename
+  35588	    132	   4204	  39924	   9bf4	ENCM_515_johnsantos_Lab0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ENCM_515_johnsantos_Lab0.list
+ 
+18:26:48 **** Incremental Build of configuration Debug for project ENCM_515_johnsantos_Lab0 ****
+make -j8 all 
+arm-none-eabi-size  ENCM_515_johnsantos_Lab0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35588	    132	   4204	  39924	   9bf4	ENCM_515_johnsantos_Lab0.elf
+Finished building: default.size.stdout
+ 
+18:30:56 **** Incremental Build of configuration Debug for project ENCM_515_johnsantos_Lab0 ****
+make -j8 all 
+arm-none-eabi-size  ENCM_515_johnsantos_Lab0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35588	    132	   4204	  39924	   9bf4	ENCM_515_johnsantos_Lab0.elf
+Finished building: default.size.stdout
+ 
+18:35:06 **** Incremental Build of configuration Debug for project ENCM_515_johnsantos_Lab0 ****
+make -j8 all 
+arm-none-eabi-size  ENCM_515_johnsantos_Lab0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35588	    132	   4204	  39924	   9bf4	ENCM_515_johnsantos_Lab0.elf
+Finished building: default.size.stdout
+ 
+18:48:22 **** Incremental Build of configuration Debug for project ENCM_515_johnsantos_Lab0 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../USB_HOST/App -I../USB_HOST/Target -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:131:22: warning: implicit declaration of function 'test_assembly' [-Wimplicit-function-declaration]
+  131 |         int result = test_assembly(4, 9);
+      |                      ^~~~~~~~~~~~~
+../Core/Src/main.c:132:9: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+  132 |         printf("\n The result of test_assembly is: %d \n\r", result);
+      |         ^~~~~~
+../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   21 | #include "usb_host.h"
+  +++ |+#include <stdio.h>
+   22 | 
+../Core/Src/main.c:132:9: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+  132 |         printf("\n The result of test_assembly is: %d \n\r", result);
+      |         ^~~~~~
+../Core/Src/main.c:132:9: note: include '<stdio.h>' or provide a declaration of 'printf'
+arm-none-eabi-gcc -o "ENCM_515_johnsantos_Lab0.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\ENCM_515_johnsantos_Lab0\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ENCM_515_johnsantos_Lab0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ENCM_515_johnsantos_Lab0.elf
+ 
+arm-none-eabi-size  ENCM_515_johnsantos_Lab0.elf 
+arm-none-eabi-objdump -h -S ENCM_515_johnsantos_Lab0.elf  > "ENCM_515_johnsantos_Lab0.list"
+   text	   data	    bss	    dec	    hex	filename
+  39264	    144	   4208	  43616	   aa60	ENCM_515_johnsantos_Lab0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ENCM_515_johnsantos_Lab0.list
+ 
+18:48:52 **** Incremental Build of configuration Debug for project ENCM_515_johnsantos_Lab0 ****
+make -j8 all 
+arm-none-eabi-size  ENCM_515_johnsantos_Lab0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  39264	    144	   4208	  43616	   aa60	ENCM_515_johnsantos_Lab0.elf
+Finished building: default.size.stdout
+ 
