@@ -1,0 +1,23 @@
+22:23:07 **** Incremental Build of configuration Debug for project ENCM_515_johnsantos_Lab2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../USB_HOST/App -I../Drivers/CMSIS/DSP/Include -I../USB_HOST/Target -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:38:33: warning: initialization of 'float32_t *' {aka 'float *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   38 | #define DATA_START_ADDRESS      0x08020000
+      |                                 ^~~~~~~~~~
+../Core/Src/main.c:65:27: note: in expansion of macro 'DATA_START_ADDRESS'
+   65 |         float32_t* data = DATA_START_ADDRESS;
+      |                           ^~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "ENCM_515_johnsantos_Lab2.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\ENCM_515_johnsantos_Lab2\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ENCM_515_johnsantos_Lab2.map" -Wl,--gc-sections -static -L../Drivers/CMSIS/Lib/GCC --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ENCM_515_johnsantos_Lab2.elf
+ 
+arm-none-eabi-size  ENCM_515_johnsantos_Lab2.elf 
+arm-none-eabi-objdump -h -S ENCM_515_johnsantos_Lab2.elf  > "ENCM_515_johnsantos_Lab2.list"
+   text	   data	    bss	    dec	    hex	filename
+  36140	    260	  92524	 128924	  1f79c	ENCM_515_johnsantos_Lab2.elf
+Finished building: default.size.stdout
+ 
+Finished building: ENCM_515_johnsantos_Lab2.list
+ 
+
+22:23:08 Build Finished. 0 errors, 1 warnings. (took 1s.128ms)
+
