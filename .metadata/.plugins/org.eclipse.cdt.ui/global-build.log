@@ -9029,3 +9029,236 @@ Finished building: default.size.stdout
  
 Finished building: ENCM_515_johnsantos_Lab2.list
  
+23:13:53 **** Incremental Build of configuration Debug for project lab2_proj ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab2_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab2_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:50:31: warning: initialization of 'volatile int32_t *' {aka 'volatile long int *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   50 | volatile int32_t *raw_audio = 0x802002C; // ignore first 44 bytes of header
+      |                               ^~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:156:14: warning: unused variable 'start' [-Wunused-variable]
+  156 |   static int start = 0;
+      |              ^~~~~
+At top level:
+../Core/Src/main.c:156:14: warning: 'start' defined but not used [-Wunused-variable]
+arm-none-eabi-gcc -o "lab2_proj.elf" @"objects.list"  -larm_cortexM4lf_math -l:libPDMFilter_CM4_GCC_wc32.a -mcpu=cortex-m4 -T"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab2_proj\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab2_proj.map" -Wl,--gc-sections -static -L"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab2_proj\Drivers\CMSIS\Lib\GCC" -L../Middlewares/ST/STM32_Audio/Addons/PDM/Lib --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab2_proj.elf
+ 
+arm-none-eabi-size  lab2_proj.elf 
+arm-none-eabi-objdump -h -S lab2_proj.elf  > "lab2_proj.list"
+   text	   data	    bss	    dec	    hex	filename
+  23816	    940	   2860	  27616	   6be0	lab2_proj.elf
+Finished building: default.size.stdout
+ 
+Finished building: lab2_proj.list
+ 
+23:19:51 **** Incremental Build of configuration Debug for project lab2_proj ****
+make -j8 all 
+arm-none-eabi-size  lab2_proj.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23816	    940	   2860	  27616	   6be0	lab2_proj.elf
+Finished building: default.size.stdout
+ 
+23:21:45 **** Incremental Build of configuration Debug for project lab2_proj ****
+make -j8 all 
+arm-none-eabi-size  lab2_proj.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23816	    940	   2860	  27616	   6be0	lab2_proj.elf
+Finished building: default.size.stdout
+ 
+23:24:51 **** Incremental Build of configuration Debug for project lab2_proj ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab2_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab2_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:50:31: warning: initialization of 'volatile int32_t *' {aka 'volatile long int *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   50 | volatile int32_t *raw_audio = 0x802002C; // ignore first 44 bytes of header
+      |                               ^~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:156:14: warning: unused variable 'start' [-Wunused-variable]
+  156 |   static int start = 0;
+      |              ^~~~~
+At top level:
+../Core/Src/main.c:156:14: warning: 'start' defined but not used [-Wunused-variable]
+arm-none-eabi-gcc -o "lab2_proj.elf" @"objects.list"  -larm_cortexM4lf_math -l:libPDMFilter_CM4_GCC_wc32.a -mcpu=cortex-m4 -T"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab2_proj\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab2_proj.map" -Wl,--gc-sections -static -L"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab2_proj\Drivers\CMSIS\Lib\GCC" -L../Middlewares/ST/STM32_Audio/Addons/PDM/Lib --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab2_proj.elf
+ 
+arm-none-eabi-size  lab2_proj.elf 
+arm-none-eabi-objdump -h -S lab2_proj.elf  > "lab2_proj.list"
+   text	   data	    bss	    dec	    hex	filename
+  23848	    940	   2860	  27648	   6c00	lab2_proj.elf
+Finished building: default.size.stdout
+ 
+Finished building: lab2_proj.list
+ 
+23:33:37 **** Incremental Build of configuration Debug for project lab2_proj ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab2_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab2_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:50:31: warning: initialization of 'volatile int32_t *' {aka 'volatile long int *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   50 | volatile int32_t *raw_audio = 0x802002C; // ignore first 44 bytes of header
+      |                               ^~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:156:14: warning: unused variable 'start' [-Wunused-variable]
+  156 |   static int start = 0;
+      |              ^~~~~
+At top level:
+../Core/Src/main.c:156:14: warning: 'start' defined but not used [-Wunused-variable]
+../Core/Src/main.c:393:16: warning: 'ProcessSample2' defined but not used [-Wunused-function]
+  393 | static int16_t ProcessSample2(int16_t newsample, int16_t* history) {
+      |                ^~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "lab2_proj.elf" @"objects.list"  -larm_cortexM4lf_math -l:libPDMFilter_CM4_GCC_wc32.a -mcpu=cortex-m4 -T"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab2_proj\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab2_proj.map" -Wl,--gc-sections -static -L"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab2_proj\Drivers\CMSIS\Lib\GCC" -L../Middlewares/ST/STM32_Audio/Addons/PDM/Lib --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab2_proj.elf
+ 
+arm-none-eabi-size  lab2_proj.elf 
+arm-none-eabi-objdump -h -S lab2_proj.elf  > "lab2_proj.list"
+   text	   data	    bss	    dec	    hex	filename
+  23848	    940	   2860	  27648	   6c00	lab2_proj.elf
+Finished building: default.size.stdout
+ 
+Finished building: lab2_proj.list
+ 
+23:33:59 **** Incremental Build of configuration Debug for project lab2_proj ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab2_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab2_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:50:31: warning: initialization of 'volatile int32_t *' {aka 'volatile long int *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   50 | volatile int32_t *raw_audio = 0x802002C; // ignore first 44 bytes of header
+      |                               ^~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:157:14: warning: unused variable 'start' [-Wunused-variable]
+  157 |   static int start = 0;
+      |              ^~~~~
+At top level:
+../Core/Src/main.c:157:14: warning: 'start' defined but not used [-Wunused-variable]
+../Core/Src/main.c:394:16: warning: 'ProcessSample2' defined but not used [-Wunused-function]
+  394 | static int16_t ProcessSample2(int16_t newsample, int16_t* history) {
+      |                ^~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "lab2_proj.elf" @"objects.list"  -larm_cortexM4lf_math -l:libPDMFilter_CM4_GCC_wc32.a -mcpu=cortex-m4 -T"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab2_proj\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab2_proj.map" -Wl,--gc-sections -static -L"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab2_proj\Drivers\CMSIS\Lib\GCC" -L../Middlewares/ST/STM32_Audio/Addons/PDM/Lib --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab2_proj.elf
+ 
+arm-none-eabi-size  lab2_proj.elf 
+arm-none-eabi-objdump -h -S lab2_proj.elf  > "lab2_proj.list"
+   text	   data	    bss	    dec	    hex	filename
+  23848	    940	   2860	  27648	   6c00	lab2_proj.elf
+Finished building: default.size.stdout
+ 
+Finished building: lab2_proj.list
+ 
+23:38:03 **** Incremental Build of configuration Debug for project lab2_proj ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab2_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab2_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:50:31: warning: initialization of 'volatile int32_t *' {aka 'volatile long int *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   50 | volatile int32_t *raw_audio = 0x802002C; // ignore first 44 bytes of header
+      |                               ^~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:157:14: warning: unused variable 'start' [-Wunused-variable]
+  157 |   static int start = 0;
+      |              ^~~~~
+At top level:
+../Core/Src/main.c:157:14: warning: 'start' defined but not used [-Wunused-variable]
+../Core/Src/main.c:395:16: warning: 'ProcessSample2' defined but not used [-Wunused-function]
+  395 | static int16_t ProcessSample2(int16_t newsample, int16_t* history) {
+      |                ^~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "lab2_proj.elf" @"objects.list"  -larm_cortexM4lf_math -l:libPDMFilter_CM4_GCC_wc32.a -mcpu=cortex-m4 -T"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab2_proj\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab2_proj.map" -Wl,--gc-sections -static -L"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab2_proj\Drivers\CMSIS\Lib\GCC" -L../Middlewares/ST/STM32_Audio/Addons/PDM/Lib --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab2_proj.elf
+ 
+arm-none-eabi-size  lab2_proj.elf 
+arm-none-eabi-objdump -h -S lab2_proj.elf  > "lab2_proj.list"
+   text	   data	    bss	    dec	    hex	filename
+  23864	    940	   2860	  27664	   6c10	lab2_proj.elf
+Finished building: default.size.stdout
+ 
+Finished building: lab2_proj.list
+ 
+23:38:07 **** Incremental Build of configuration Debug for project lab2_proj ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab2_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab2_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:50:31: warning: initialization of 'volatile int32_t *' {aka 'volatile long int *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   50 | volatile int32_t *raw_audio = 0x802002C; // ignore first 44 bytes of header
+      |                               ^~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:157:14: warning: unused variable 'start' [-Wunused-variable]
+  157 |   static int start = 0;
+      |              ^~~~~
+At top level:
+../Core/Src/main.c:157:14: warning: 'start' defined but not used [-Wunused-variable]
+../Core/Src/main.c:395:16: warning: 'ProcessSample2' defined but not used [-Wunused-function]
+  395 | static int16_t ProcessSample2(int16_t newsample, int16_t* history) {
+      |                ^~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "lab2_proj.elf" @"objects.list"  -larm_cortexM4lf_math -l:libPDMFilter_CM4_GCC_wc32.a -mcpu=cortex-m4 -T"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab2_proj\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab2_proj.map" -Wl,--gc-sections -static -L"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab2_proj\Drivers\CMSIS\Lib\GCC" -L../Middlewares/ST/STM32_Audio/Addons/PDM/Lib --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab2_proj.elf
+ 
+arm-none-eabi-size  lab2_proj.elf 
+arm-none-eabi-objdump -h -S lab2_proj.elf  > "lab2_proj.list"
+   text	   data	    bss	    dec	    hex	filename
+  23864	    940	   2860	  27664	   6c10	lab2_proj.elf
+Finished building: default.size.stdout
+ 
+Finished building: lab2_proj.list
+ 
+23:40:42 **** Build of configuration Debug for project lab2_proj ****
+make -j8 all 
+arm-none-eabi-size  lab2_proj.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23864	    940	   2860	  27664	   6c10	lab2_proj.elf
+Finished building: default.size.stdout
+ 
+23:40:48 **** Incremental Build of configuration Debug for project lab2_proj ****
+make -j8 all 
+arm-none-eabi-size  lab2_proj.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23864	    940	   2860	  27664	   6c10	lab2_proj.elf
+Finished building: default.size.stdout
+ 
+23:41:52 **** Incremental Build of configuration Debug for project lab2_proj ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab2_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab2_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:50:31: warning: initialization of 'volatile int32_t *' {aka 'volatile long int *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   50 | volatile int32_t *raw_audio = 0x802002C; // ignore first 44 bytes of header
+      |                               ^~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:157:14: warning: unused variable 'start' [-Wunused-variable]
+  157 |   static int start = 0;
+      |              ^~~~~
+At top level:
+../Core/Src/main.c:157:14: warning: 'start' defined but not used [-Wunused-variable]
+../Core/Src/main.c:365:16: warning: 'ProcessSample' defined but not used [-Wunused-function]
+  365 | static int16_t ProcessSample(int16_t newsample, int16_t* history) {
+      |                ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "lab2_proj.elf" @"objects.list"  -larm_cortexM4lf_math -l:libPDMFilter_CM4_GCC_wc32.a -mcpu=cortex-m4 -T"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab2_proj\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab2_proj.map" -Wl,--gc-sections -static -L"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab2_proj\Drivers\CMSIS\Lib\GCC" -L../Middlewares/ST/STM32_Audio/Addons/PDM/Lib --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab2_proj.elf
+ 
+arm-none-eabi-size  lab2_proj.elf 
+arm-none-eabi-objdump -h -S lab2_proj.elf  > "lab2_proj.list"
+   text	   data	    bss	    dec	    hex	filename
+  23856	    940	   2860	  27656	   6c08	lab2_proj.elf
+Finished building: default.size.stdout
+ 
+Finished building: lab2_proj.list
+ 
+00:02:19 **** Incremental Build of configuration Debug for project lab2_proj ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DARM_MATH_CM4 -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab2_proj/Drivers/stm32f411e/Inc" -I"C:/Users/johns/Documents/EngineeringRepositories/ENCM515/lab2_proj/Drivers/CMSIS/DSP/Include" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../PDM2PCM/App -I../Middlewares/ST/STM32_Audio/Addons/PDM/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:50:31: warning: initialization of 'volatile int32_t *' {aka 'volatile long int *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   50 | volatile int32_t *raw_audio = 0x802002C; // ignore first 44 bytes of header
+      |                               ^~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:158:14: warning: unused variable 'start' [-Wunused-variable]
+  158 |   static int start = 0;
+      |              ^~~~~
+At top level:
+../Core/Src/main.c:158:14: warning: 'start' defined but not used [-Wunused-variable]
+../Core/Src/main.c:396:16: warning: 'ProcessSample2' defined but not used [-Wunused-function]
+  396 | static int16_t ProcessSample2(int16_t newsample, int16_t* history) {
+      |                ^~~~~~~~~~~~~~
+../Core/Src/main.c:366:16: warning: 'ProcessSample' defined but not used [-Wunused-function]
+  366 | static int16_t ProcessSample(int16_t newsample, int16_t* history) {
+      |                ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "lab2_proj.elf" @"objects.list"  -larm_cortexM4lf_math -l:libPDMFilter_CM4_GCC_wc32.a -mcpu=cortex-m4 -T"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab2_proj\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab2_proj.map" -Wl,--gc-sections -static -L"C:\Users\johns\Documents\EngineeringRepositories\ENCM515\lab2_proj\Drivers\CMSIS\Lib\GCC" -L../Middlewares/ST/STM32_Audio/Addons/PDM/Lib --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab2_proj.elf
+ 
+arm-none-eabi-size  lab2_proj.elf 
+arm-none-eabi-objdump -h -S lab2_proj.elf  > "lab2_proj.list"
+   text	   data	    bss	    dec	    hex	filename
+  23896	    940	   2860	  27696	   6c30	lab2_proj.elf
+Finished building: default.size.stdout
+ 
+Finished building: lab2_proj.list
+ 

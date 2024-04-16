@@ -29,13 +29,7 @@
 /* Private define ------------------------------------------------------------*/
 #define NUMBER_OF_TAPS	220
 #define BUFFER_SIZE 32
-#define FUNCTIONAL_TEST 1 // uncomment this flag if we want to test the code without the interrupt
-#define ITM_Port32(n) (*((volatile unsigned long *)(0xE0000000+4*n)))
-/* This is the start address of where we are going to put our input data */
-#define DATA_START_ADDRESS	0x08020000
-
-/* For this lab, we should know in advance how many samples we have to process... */
-#define NUMBER_OF_SAMPLES	22050
+//#define FUNCTIONAL_TEST 1 // uncomment this flag if we want to test the code without the interrupt
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
@@ -58,13 +52,6 @@ int16_t history_l[NUMBER_OF_TAPS];
 int16_t history_r[NUMBER_OF_TAPS];
 volatile int overflow_count = 0;
 volatile int underflow_count = 0;
-
-/* This is a pointer to our input data */
-float32_t* data = DATA_START_ADDRESS;
-
-/* let's have our history and output arrays defined somewhere */
-float32_t history[31];
-float32_t newdata[NUMBER_OF_SAMPLES];
 
 /* 256 */
 //int16_t filter_coeffs[NUMBER_OF_TAPS] = {-3, -8, -8, -12, -13, -13, -12, -9, -4, 1, 6, 10, 11, 9, 5, 0, -6, -11, -13, -13, -9, -2, 6, 13, 17, 17, 13, 5, -5, -14, -21, -23, -19, -10, 2, 15, 25, 30, 27, 17, 2, -15, -29, -37, -36, -26, -8, 13, 33, 45, 47, 37, 17, -9, -35, -53, -59, -50, -28, 3, 36, 61, 73, 66, 43, 6, -34, -69, -88, -86, -61, -20, 30, 75, 104, 108, 85, 38, -22, -80, -122, -135, -114, -63, 9, 83, 142, 167, 152, 96, 11, -83, -163, -207, -200, -142, -41, 78, 187, 257, 266, 206, 87, -66, -217, -327, -362, -306, -163, 41, 259, 436, 522, 481, 303, 14, -331, -654, -866, -886, -661, -174, 543, 1416, 2336, 3176, 3818, 4164, 4164, 3818, 3176, 2336, 1416, 543, -174, -661, -886, -866, -654, -331, 14, 303, 481, 522, 436, 259, 41, -163, -306, -362, -327, -217, -66, 87, 206, 266, 257, 187, 78, -41, -142, -200, -207, -163, -83, 11, 96, 152, 167, 142, 83, 9, -63, -114, -135, -122, -80, -22, 38, 85, 108, 104, 75, 30, -20, -61, -86, -88, -69, -34, 6, 43, 66, 73, 61, 36, 3, -28, -50, -59, -53, -35, -9, 17, 37, 47, 45, 33, 13, -8, -26, -36, -37, -29, -15, 2, 17, 27, 30, 25, 15, 2, -10, -19, -23, -21, -14, -5, 5, 13, 17, 17, 13, 6, -2, -9, -13, -13, -11, -6, 0, 5, 9, 11, 10, 6, 1, -4, -9, -12, -13, -13, -12, -8, -8, -3};
@@ -94,6 +81,8 @@ extern I2S_HandleTypeDef       hAudioOutI2s;
 static void SystemClock_Config(void);
 static void GPIOA_Init(void);
 static int16_t ProcessSample(int16_t newsample, int16_t* history);
+static int16_t ProcessSample2(int16_t newsample, int16_t* history);
+static int16_t ProcessSample3(int16_t newsample, int16_t* history);
 /* Private functions ---------------------------------------------------------*/
 
 /**
@@ -162,26 +151,31 @@ int main(void)
    ******************************************************************************
    */
 
+
+
   static int i = 0;
   static int k = 0;
   static int start = 0;
 
   while (1) {
-		#ifdef FUNCTIONAL_TEST
-		  if (sample_count < 64000) {
-				  newSampleL = (int16_t)raw_audio[sample_count];
-				  newSampleR = (int16_t)(raw_audio[sample_count] >> 16);
-				  sample_count++;
+
+
+#ifdef FUNCTIONAL_TEST
+		if (sample_count < 64000) {
+			  newSampleL = (int16_t)raw_audio[sample_count];
+			  newSampleR = (int16_t)(raw_audio[sample_count] >> 16);
+			  sample_count++;
 		  } else {
 			  sample_count = 0;
 		  }
-		#endif
+#endif
 
-		#ifndef FUNCTIONAL_TEST
-		  if (new_sample_flag == 1) {
-		#endif
-
-		filteredSampleL = ProcessSample(newSampleL,history_l); // "L"
+#ifndef FUNCTIONAL_TEST
+	if (new_sample_flag == 1) {
+#endif
+		ITM_Port32(31) = 1;
+		filteredSampleL = ProcessSample3(newSampleL,history_l); // "L"
+		ITM_Port32(31) = 1;
 		new_sample_flag = 0;
 		if (i < NUMBER_OF_TAPS-1) {
 			filteredSampleL = 0;
@@ -196,22 +190,22 @@ int main(void)
 			k++;
 		}
 
-		#ifndef FUNCTIONAL_TEST
-			}
-		#endif
+#ifndef FUNCTIONAL_TEST
+	}
+#endif
 
-		// once a buffer is full, we can swap to fill up the other buffer
-		// this is probably not going to be used in Lab2
-		if (k == BUFFER_SIZE) {
-			k = 0;
-			bufchoice = bufchoice == 0 ? 1 : 0;
-		}
+	// once a buffer is full, we can swap to fill up the other buffer
+	// this is probably not going to be used in Lab2
+	if (k == BUFFER_SIZE) {
+		k = 0;
+		bufchoice = bufchoice == 0 ? 1 : 0;
+	}
 
-	//    if(UserPressButton == 1) {
-	//    	AudioPlay_Test();
-	//    	UserPressButton = 0;
-	//    }
-	  }
+//    if(UserPressButton == 1) {
+//    	AudioPlay_Test();
+//    	UserPressButton = 0;
+//    }
+  }
 }
 
 /**
@@ -399,30 +393,73 @@ static int16_t ProcessSample(int16_t newsample, int16_t* history) {
 	return temp;
 }
 
-void FloatFilterInit(void) {
-	for (int i=0; i<31; i++) {
-		history[i] = 0.0;
-	}
-}
+static int16_t ProcessSample2(int16_t newsample, int16_t* history) {
 
-/* here is the function that does the filtering */
-float32_t FloatFilterGet(float32_t newsample) {
 	// set the new sample as the head
 	history[0] = newsample;
-	float32_t accumulator = 0;
 
 	// set up and do our convolution
-	for (int i=0; i<31; i++) {
-		accumulator += filter_taps[i] * history[i];
+	int tap = 0;
+	int32_t accumulator = 0;
+	for (tap = 0; tap < NUMBER_OF_TAPS; tap++) {
+		__asm volatile("SMLABB %[result], %[op1], %[op2], %[acc]"
+			:[result] "=r" (accumulator)
+			:[op1] "r" (filter_coeffs[tap]), [op2] "r" (history[tap]), [acc] "r" (accumulator)
+			);
 	}
 
-	// shuffle the history along for the next one?
-	for (int i=30; i>0; i--) {
-		history[i] = history[i-1];
+	// shuffle things along for the next one?
+	for(tap = NUMBER_OF_TAPS-2; tap > -1; tap--) {
+		history[tap+1] = history[tap];
 	}
 
-	return accumulator;
+	if (accumulator > 0x3FFFFFFF) {
+		accumulator = 0x3FFFFFFF;
+		overflow_count++;
+	} else if (accumulator < -0x40000000) {
+		accumulator = -0x40000000;
+		underflow_count++;
+	}
+
+	int16_t temp = (int16_t)(accumulator >> 15);
+
+	return temp;
 }
+
+static int16_t ProcessSample3(int16_t newsample, int16_t* history) {
+
+	// set the new sample as the head
+	history[0] = newsample;
+
+	// set up and do our convolution
+	int tap = 0;
+	int32_t accumulator = 0;
+	for (tap = 0; tap < NUMBER_OF_TAPS; tap+=2) {
+		__asm volatile ("SMLAD %0, %1, %2, %3"
+				: "=r" (accumulator)
+				: "r" ((int32_t)(filter_coeffs[tap]<<16) + (uint16_t)filter_coeffs[tap+1]),
+				  "r" ((int32_t)(history[tap]<<16) + (uint16_t)history[tap+1]),
+				  "r" (accumulator) );
+	}
+
+	// shuffle things along for the next one?
+	for(tap = NUMBER_OF_TAPS-2; tap > -1; tap--) {
+		history[tap+1] = history[tap];
+	}
+
+	if (accumulator > 0x3FFFFFFF) {
+		accumulator = 0x3FFFFFFF;
+		overflow_count++;
+	} else if (accumulator < -0x40000000) {
+		accumulator = -0x40000000;
+		underflow_count++;
+	}
+
+	int16_t temp = (int16_t)(accumulator >> 15);
+
+	return temp;
+}
+
 
 #ifdef USE_FULL_ASSERT
 
